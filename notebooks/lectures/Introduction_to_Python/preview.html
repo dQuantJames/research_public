@@ -1,8 +1,10 @@
-<head>
-  <meta charset="utf-8" />
-  <title>Cloned from "Quantopian Lecture Series: Introduction to Python"</title>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" />
+<title>notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-  <style type="text/css">
+<style type="text/css">
     /*!
 *
 * Twitter Bootstrap
@@ -11601,16 +11603,18 @@ ul.typeahead-list > li > a {
   margin-top: 20px;
 }
 /*# sourceMappingURL=style.min.css.map */
-  </style>
-  <style type="text/css">
+    </style>
+<style type="text/css">
     .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -11650,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11662,12 +11668,14 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
-  </style>
-  <style type="text/css">
+    </style>
+<style type="text/css">
     
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
@@ -11705,39 +11713,40 @@ ul.typeahead-list > li > a {
 
 .ansi-bold { font-weight: bold; }
 
-  </style>
-  
+    </style>
 
-  <style type="text/css">
-    /* Overrides of notebook CSS for static HTML export */
-    body {
-    overflow: visible;
-    padding: 8px;
-    }
 
-    div#notebook {
-    overflow: visible;
-    border-top: none;
-    }
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+body {
+  overflow: visible;
+  padding: 8px;
+}
 
-    @media print {
-    div.cell {
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
     display: block;
     page-break-inside: avoid;
-    }
-    div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
-    }
-    div.output {
+    page-break-inside: avoid; 
+  }
+  div.output { 
     display: block;
-    page-break-inside: avoid;
-    }
-    }
-  </style>
+    page-break-inside: avoid; 
+  }
+}
+</style>
 
-  <!-- Loading mathjax macro -->
-  <!-- Load mathjax -->
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<link rel="stylesheet" href="custom.css">
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
@@ -11757,8 +11766,7 @@ ul.typeahead-list > li > a {
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
-</head>
+    <!-- End of mathjax configuration --></head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -11767,7 +11775,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction-to-Python">Introduction to Python<a class="anchor-link" href="#Introduction-to-Python">&#194;&#182;</a></h1><p>by Maxwell Margenot</p>
+<h1 id="Introduction-to-Python">Introduction to Python<a class="anchor-link" href="#Introduction-to-Python">&#182;</a></h1><p>by Maxwell Margenot</p>
 <p>Part of the Quantopian Lecture Series:</p>
 <ul>
 <li><a href="https://www.quantopian.com/lectures">www.quantopian.com/lectures</a></li>
@@ -11783,7 +11791,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Code-Comments">Code Comments<a class="anchor-link" href="#Code-Comments">&#194;&#182;</a></h2><p>A comment is a note made by a programmer in the source code of a program. Its purpose is to clarify the source code and make it easier for people to follow along with what is happening. Anything in a comment is generally ignored when the code is actually run, making comments useful for including explanations and reasoning as well as removing specific lines of code that you may be unsure about. Comments in Python are created by using the pound symbol (<code># Insert Text Here</code>). Including a <code>#</code> in a line of code will comment out anything that follows it.</p>
+<h2 id="Code-Comments">Code Comments<a class="anchor-link" href="#Code-Comments">&#182;</a></h2><p>A comment is a note made by a programmer in the source code of a program. Its purpose is to clarify the source code and make it easier for people to follow along with what is happening. Anything in a comment is generally ignored when the code is actually run, making comments useful for including explanations and reasoning as well as removing specific lines of code that you may be unsure about. Comments in Python are created by using the pound symbol (<code># Insert Text Here</code>). Including a <code>#</code> in a line of code will comment out anything that follows it.</p>
 
 </div>
 </div>
@@ -11793,9 +11801,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c"># This is a comment</span>
-<span class="c"># These lines of code will not change any values</span>
-<span class="c"># Anything following the first # is not run as code</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># This is a comment</span>
+<span class="c1"># These lines of code will not change any values</span>
+<span class="c1"># Anything following the first # is not run as code</span>
 </pre></div>
 
 </div>
@@ -11817,7 +11825,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="sd">&quot;&quot;&quot; This is a special string &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot; This is a special string &quot;&quot;&quot;</span>
 </pre></div>
 
 </div>
@@ -11838,7 +11846,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Variables">Variables<a class="anchor-link" href="#Variables">&#194;&#182;</a></h2><p>Variables provide names for values in programming. If you want to save a value for later or repeated use, you give the value a name, storing the contents in a variable. Variables in programming work in a fundamentally similar way to variables in algebra, but in Python they can take on various different data types.</p>
+<h2 id="Variables">Variables<a class="anchor-link" href="#Variables">&#182;</a></h2><p>Variables provide names for values in programming. If you want to save a value for later or repeated use, you give the value a name, storing the contents in a variable. Variables in programming work in a fundamentally similar way to variables in algebra, but in Python they can take on various different data types.</p>
 <p>The basic variable types that we will cover in this section are <code>integers</code>, <code>floating point numbers</code>, <code>booleans</code>, and <code>strings</code>.</p>
 <p>An <code>integer</code> in programming is the same as in mathematics, a round number with no values after the decimal point. We use the built-in <code>print</code> function here to display the values of our variables as well as their types!</p>
 
@@ -11850,7 +11858,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">50</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="k">print</span> <span class="n">my_integer</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_integer</span><span class="p">)</span>
 </pre></div>
 
@@ -11873,7 +11881,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">print</span> <span class="n">One</span>
 </pre></div>
 
@@ -11896,7 +11904,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_float</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_float</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="k">print</span> <span class="n">my_float</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_float</span><span class="p">)</span>
 <span class="n">my_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_float</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_float</span><span class="p">)</span>
@@ -11922,7 +11930,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_int</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
 </pre></div>
 
@@ -11946,9 +11954,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&#39;This is a string with single quotes&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;This is a string with single quotes&#39;</span>
 <span class="k">print</span> <span class="n">my_string</span>
-<span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;This is a string with double quotes&quot;</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;This is a string with double quotes&quot;</span>
 <span class="k">print</span> <span class="n">my_string</span>
 </pre></div>
 
@@ -11971,9 +11979,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&#39;&quot;Jabberwocky&quot;, by Lewis Carroll&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;&quot;Jabberwocky&quot;, by Lewis Carroll&#39;</span>
 <span class="k">print</span> <span class="n">my_string</span>
-<span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;&#39;Twas brillig, and the slithy toves / Did gyre and gimble in the wabe;&quot;</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;&#39;Twas brillig, and the slithy toves / Did gyre and gimble in the wabe;&quot;</span>
 <span class="k">print</span> <span class="n">my_string</span>
 </pre></div>
 
@@ -11996,7 +12004,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_bool</span> <span class="o">=</span> <span class="bp">True</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_bool</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">print</span> <span class="n">my_bool</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_bool</span><span class="p">)</span>
 </pre></div>
 
@@ -12018,7 +12026,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Basic-Math">Basic Math<a class="anchor-link" href="#Basic-Math">&#194;&#182;</a></h2><p>Python has a number of built-in math functions. These can be extended even further by importing the <strong>math</strong> package or by including any number of other calculation-based packages.</p>
+<h2 id="Basic-Math">Basic Math<a class="anchor-link" href="#Basic-Math">&#182;</a></h2><p>Python has a number of built-in math functions. These can be extended even further by importing the <strong>math</strong> package or by including any number of other calculation-based packages.</p>
 <p>All of the basic arithmetic operations are supported: <code>+</code>, <code>-</code>, <code>/</code>, and <code>*</code>. You can create exponents by using <code>**</code> and modular arithmetic is introduced with the mod operator, <code>%</code>.</p>
 
 </div>
@@ -12029,11 +12037,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;Addition: &#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="k">print</span> <span class="s">&#39;Subtraction: &#39;</span><span class="p">,</span> <span class="mi">7</span> <span class="o">-</span> <span class="mi">4</span>
-<span class="k">print</span> <span class="s">&#39;Multiplication: &#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span>
-<span class="k">print</span> <span class="s">&#39;Division: &#39;</span><span class="p">,</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="k">print</span> <span class="s">&#39;Exponentiation: &#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Addition: &#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="s1">&#39;Subtraction: &#39;</span><span class="p">,</span> <span class="mi">7</span> <span class="o">-</span> <span class="mi">4</span>
+<span class="k">print</span> <span class="s1">&#39;Multiplication: &#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="k">print</span> <span class="s1">&#39;Division: &#39;</span><span class="p">,</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="s1">&#39;Exponentiation: &#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 
 </div>
@@ -12055,7 +12063,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;Modulo: &#39;</span><span class="p">,</span> <span class="mi">15</span> <span class="o">%</span> <span class="mi">4</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Modulo: &#39;</span><span class="p">,</span> <span class="mi">15</span> <span class="o">%</span> <span class="mi">4</span>
 </pre></div>
 
 </div>
@@ -12077,7 +12085,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">first_integer</span> <span class="o">=</span> <span class="mi">4</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_integer</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">second_integer</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">print</span> <span class="n">first_integer</span> <span class="o">*</span> <span class="n">second_integer</span>
 </pre></div>
@@ -12101,7 +12109,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">first_integer</span> <span class="o">=</span> <span class="mi">11</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_integer</span> <span class="o">=</span> <span class="mi">11</span>
 <span class="n">second_integer</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">print</span> <span class="n">first_integer</span> <span class="o">/</span> <span class="n">second_integer</span>
 </pre></div>
@@ -12116,7 +12124,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">first_number</span> <span class="o">=</span> <span class="mf">11.0</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_number</span> <span class="o">=</span> <span class="mf">11.0</span>
 <span class="n">second_number</span> <span class="o">=</span> <span class="mf">3.0</span>
 <span class="k">print</span> <span class="n">first_number</span> <span class="o">/</span> <span class="n">second_number</span>
 </pre></div>
@@ -12149,7 +12157,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">math</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 </pre></div>
 
 </div>
@@ -12171,8 +12179,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;Pi: &#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-<span class="k">print</span> <span class="s">&quot;Euler&#39;s Constant: &quot;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Pi: &#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="k">print</span> <span class="s2">&quot;Euler&#39;s Constant: &quot;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span>
 </pre></div>
 
 </div>
@@ -12194,7 +12202,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;Cosine of pi: &#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Cosine of pi: &#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12206,7 +12214,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Collections">Collections<a class="anchor-link" href="#Collections">&#194;&#182;</a></h2><h3 id="Lists">Lists<a class="anchor-link" href="#Lists">&#194;&#182;</a></h3><p>A <code>list</code> in Python is an ordered collection of objects that can contain any data type. We define a <code>list</code> using brackets (<code>[]</code>).</p>
+<h2 id="Collections">Collections<a class="anchor-link" href="#Collections">&#182;</a></h2><h3 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h3><p>A <code>list</code> in Python is an ordered collection of objects that can contain any data type. We define a <code>list</code> using brackets (<code>[]</code>).</p>
 
 </div>
 </div>
@@ -12216,7 +12224,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">my_list</span>
 </pre></div>
 
@@ -12239,7 +12247,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -12262,8 +12270,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;The first, second, and third list elements: &#39;</span><span class="p">,</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="k">print</span> <span class="s">&#39;Accessing outside the list bounds causes an error: &#39;</span><span class="p">,</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;The first, second, and third list elements: &#39;</span><span class="p">,</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="s1">&#39;Accessing outside the list bounds causes an error: &#39;</span><span class="p">,</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12285,7 +12293,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12307,7 +12315,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span>
 <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">print</span> <span class="n">my_list</span>
 </pre></div>
@@ -12331,8 +12339,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;Strings never change&quot;</span>
-<span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Z&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Strings never change&quot;</span>
+<span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
 </pre></div>
 
 </div>
@@ -12354,7 +12362,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="s">&#39;three&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">my_list_2</span>
 </pre></div>
 
@@ -12377,7 +12385,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list_3</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="s">&#39;False&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list_3</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12399,7 +12407,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list_4</span> <span class="o">=</span> <span class="n">my_list</span> <span class="o">+</span> <span class="n">my_list_2</span> <span class="o">+</span> <span class="n">my_list_3</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list_4</span> <span class="o">=</span> <span class="n">my_list</span> <span class="o">+</span> <span class="n">my_list_2</span> <span class="o">+</span> <span class="n">my_list_3</span>
 <span class="k">print</span> <span class="n">my_list_4</span>
 </pre></div>
 
@@ -12422,7 +12430,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;friends&#39;</span><span class="p">,</span> <span class="s">&#39;romans&#39;</span><span class="p">,</span> <span class="s">&#39;countrymen&#39;</span><span class="p">,</span> <span class="s">&#39;lend&#39;</span><span class="p">,</span> <span class="s">&#39;me&#39;</span><span class="p">,</span> <span class="s">&#39;your&#39;</span><span class="p">,</span> <span class="s">&#39;ears&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;friends&#39;</span><span class="p">,</span> <span class="s1">&#39;romans&#39;</span><span class="p">,</span> <span class="s1">&#39;countrymen&#39;</span><span class="p">,</span> <span class="s1">&#39;lend&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;ears&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12434,7 +12442,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Slicing">Slicing<a class="anchor-link" href="#Slicing">&#194;&#182;</a></h4><p>We use the colon (<code>:</code>) to slice lists.</p>
+<h4 id="Slicing">Slicing<a class="anchor-link" href="#Slicing">&#182;</a></h4><p>We use the colon (<code>:</code>) to slice lists.</p>
 
 </div>
 </div>
@@ -12444,7 +12452,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12467,7 +12475,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 
 </div>
@@ -12489,7 +12497,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12511,7 +12519,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12533,7 +12541,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12555,7 +12563,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12577,7 +12585,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[:]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[:]</span>
 </pre></div>
 
 </div>
@@ -12599,7 +12607,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12630,7 +12638,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_list</span>
 </pre></div>
@@ -12654,7 +12662,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_list</span>
@@ -12679,7 +12687,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">step</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
@@ -12695,7 +12703,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#194;&#182;</a></h3><p>A <code>tuple</code> is a data type similar to a list in that it can hold different kinds of data types. The key difference here is that a <code>tuple</code> is immutable. We define a <code>tuple</code> by separating the elements we want to include by commas. It is conventional to surround a <code>tuple</code> with parentheses.</p>
+<h3 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#182;</a></h3><p>A <code>tuple</code> is a data type similar to a list in that it can hold different kinds of data types. The key difference here is that a <code>tuple</code> is immutable. We define a <code>tuple</code> by separating the elements we want to include by commas. It is conventional to surround a <code>tuple</code> with parentheses.</p>
 
 </div>
 </div>
@@ -12705,7 +12713,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_tuple</span> <span class="o">=</span> <span class="s">&#39;I&#39;</span><span class="p">,</span> <span class="s">&#39;have&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;cats&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;have&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;cats&#39;</span>
 <span class="k">print</span> <span class="n">my_tuple</span>
 </pre></div>
 
@@ -12719,7 +12727,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;I&#39;</span><span class="p">,</span> <span class="s">&#39;have&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;cats&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;have&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;cats&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_tuple</span>
 </pre></div>
 
@@ -12742,7 +12750,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;dogs&#39;</span> <span class="c"># Attempts to change the &#39;cats&#39; value stored in the the tuple to &#39;dogs&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dogs&#39;</span> <span class="c1"># Attempts to change the &#39;cats&#39; value stored in the the tuple to &#39;dogs&#39;</span>
 </pre></div>
 
 </div>
@@ -12764,7 +12772,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12786,7 +12794,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_other_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;make&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_other_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;make&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_tuple</span> <span class="o">+</span> <span class="n">my_other_tuple</span>
 </pre></div>
 
@@ -12809,7 +12817,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">str_1</span><span class="p">,</span> <span class="n">str_2</span><span class="p">,</span> <span class="n">int_1</span> <span class="o">=</span> <span class="n">my_other_tuple</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">str_1</span><span class="p">,</span> <span class="n">str_2</span><span class="p">,</span> <span class="n">int_1</span> <span class="o">=</span> <span class="n">my_other_tuple</span>
 <span class="k">print</span> <span class="n">str_1</span><span class="p">,</span> <span class="n">str_2</span><span class="p">,</span> <span class="n">int_1</span>
 </pre></div>
 
@@ -12831,7 +12839,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sets">Sets<a class="anchor-link" href="#Sets">&#194;&#182;</a></h3><p>A <code>set</code> is a collection of unordered, unique elements. It works almost exactly as you would expect a normal set of things in mathematics to work and is defined using braces (<code>{}</code>).</p>
+<h3 id="Sets">Sets<a class="anchor-link" href="#Sets">&#182;</a></h3><p>A <code>set</code> is a collection of unordered, unique elements. It works almost exactly as you would expect a normal set of things in mathematics to work and is defined using braces (<code>{}</code>).</p>
 
 </div>
 </div>
@@ -12841,7 +12849,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">things_i_like</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">&#39;the number 4&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s">&#39;lizards&#39;</span><span class="p">,</span> <span class="s">&#39;man I just LOVE the number 4&#39;</span><span class="p">}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">things_i_like</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;the number 4&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;lizards&#39;</span><span class="p">,</span> <span class="s1">&#39;man I just LOVE the number 4&#39;</span><span class="p">}</span>
 <span class="k">print</span> <span class="n">things_i_like</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">things_i_like</span><span class="p">)</span>
 </pre></div>
 
@@ -12864,9 +12872,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">animal_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;cats&#39;</span><span class="p">,</span> <span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;lizards&#39;</span><span class="p">,</span> <span class="s">&#39;sponges&#39;</span><span class="p">,</span> <span class="s">&#39;cows&#39;</span><span class="p">,</span> <span class="s">&#39;bats&#39;</span><span class="p">,</span> <span class="s">&#39;sponges&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">animal_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;lizards&#39;</span><span class="p">,</span> <span class="s1">&#39;sponges&#39;</span><span class="p">,</span> <span class="s1">&#39;cows&#39;</span><span class="p">,</span> <span class="s1">&#39;bats&#39;</span><span class="p">,</span> <span class="s1">&#39;sponges&#39;</span><span class="p">]</span>
 <span class="n">animal_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">animal_list</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">animal_set</span> <span class="c"># Removes all extra instances from the list</span>
+<span class="k">print</span> <span class="n">animal_set</span> <span class="c1"># Removes all extra instances from the list</span>
 </pre></div>
 
 </div>
@@ -12888,7 +12896,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_set</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_set</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12910,7 +12918,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="s">&#39;cats&#39;</span> <span class="ow">in</span> <span class="n">animal_set</span> <span class="c"># Here we check for membership using the `in` keyword.</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="s1">&#39;cats&#39;</span> <span class="ow">in</span> <span class="n">animal_set</span> <span class="c1"># Here we check for membership using the `in` keyword.</span>
 </pre></div>
 
 </div>
@@ -12933,7 +12941,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">animal_set</span> <span class="o">|</span> <span class="n">things_i_like</span> <span class="c"># You can also write things_i_like | animal_set with no difference</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">animal_set</span> <span class="o">|</span> <span class="n">things_i_like</span> <span class="c1"># You can also write things_i_like | animal_set with no difference</span>
 </pre></div>
 
 </div>
@@ -12955,7 +12963,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">animal_set</span> <span class="o">&amp;</span> <span class="n">things_i_like</span> <span class="c"># You can also write things_i_like &amp; animal_set with no difference</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">animal_set</span> <span class="o">&amp;</span> <span class="n">things_i_like</span> <span class="c1"># You can also write things_i_like &amp; animal_set with no difference</span>
 </pre></div>
 
 </div>
@@ -12977,7 +12985,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#194;&#182;</a></h3><p>Another essential data structure in Python is the dictionary. Dictionaries are defined with a combination of curly braces (<code>{}</code>) and colons (<code>:</code>). The braces define the beginning and end of a dictionary and the colons indicate key-value pairs. A dictionary is essentially a set of key-value pairs. The key of any entry must be an immutable data type. This makes both strings and tuples candidates. Keys can be both added and deleted.</p>
+<h3 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#182;</a></h3><p>Another essential data structure in Python is the dictionary. Dictionaries are defined with a combination of curly braces (<code>{}</code>) and colons (<code>:</code>). The braces define the beginning and end of a dictionary and the colons indicate key-value pairs. A dictionary is essentially a set of key-value pairs. The key of any entry must be an immutable data type. This makes both strings and tuples candidates. Keys can be both added and deleted.</p>
 <p>In the following example, we have a dictionary composed of key-value pairs where the key is a genre of fiction (<code>string</code>) and the value is a list of books (<code>list</code>) within that genre. Since a collection is still considered a single entity, we can use one to collect multiple variables or values into one key-value pair.</p>
 
 </div>
@@ -12988,9 +12996,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;High Fantasy&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;Wheel of Time&quot;</span><span class="p">,</span> <span class="s">&quot;Lord of the Rings&quot;</span><span class="p">],</span> 
-           <span class="s">&quot;Sci-fi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;Book of the New Sun&quot;</span><span class="p">,</span> <span class="s">&quot;Neuromancer&quot;</span><span class="p">,</span> <span class="s">&quot;Snow Crash&quot;</span><span class="p">],</span>
-           <span class="s">&quot;Weird Fiction&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;At the Mountains of Madness&quot;</span><span class="p">,</span> <span class="s">&quot;The House on the Borderland&quot;</span><span class="p">]}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;High Fantasy&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Wheel of Time&quot;</span><span class="p">,</span> <span class="s2">&quot;Lord of the Rings&quot;</span><span class="p">],</span> 
+           <span class="s2">&quot;Sci-fi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Book of the New Sun&quot;</span><span class="p">,</span> <span class="s2">&quot;Neuromancer&quot;</span><span class="p">,</span> <span class="s2">&quot;Snow Crash&quot;</span><span class="p">],</span>
+           <span class="s2">&quot;Weird Fiction&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;At the Mountains of Madness&quot;</span><span class="p">,</span> <span class="s2">&quot;The House on the Borderland&quot;</span><span class="p">]}</span>
 </pre></div>
 
 </div>
@@ -13012,7 +13020,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s">&quot;Sci-fi&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Sci-fi&quot;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13034,8 +13042,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_dict</span><span class="p">[</span><span class="s">&quot;Sci-fi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;I can&#39;t read&quot;</span>
-<span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s">&quot;Sci-fi&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Sci-fi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;I can&#39;t read&quot;</span>
+<span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Sci-fi&quot;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13057,8 +13065,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_dict</span><span class="p">[</span><span class="s">&quot;Historical Fiction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Pillars of the Earth&quot;</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s">&quot;Historical Fiction&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Historical Fiction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pillars of the Earth&quot;</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Historical Fiction&quot;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13071,7 +13079,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">my_dict</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">my_dict</span>
 </pre></div>
 
 </div>
@@ -13083,7 +13091,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String-Shenanigans">String Shenanigans<a class="anchor-link" href="#String-Shenanigans">&#194;&#182;</a></h2><p>We already know that strings are generally used for text. We can used built-in operations to combine, split, and format strings easily, depending on our needs.</p>
+<h2 id="String-Shenanigans">String Shenanigans<a class="anchor-link" href="#String-Shenanigans">&#182;</a></h2><p>We already know that strings are generally used for text. We can used built-in operations to combine, split, and format strings easily, depending on our needs.</p>
 <p>The <code>+</code> symbol indicates concatenation in string language. It will combine two strings into a longer string.</p>
 
 </div>
@@ -13094,8 +13102,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">first_string</span> <span class="o">=</span> <span class="s">&#39;&quot;Beware the Jabberwock, my son! /The jaws that bite, the claws that catch! /&#39;</span>
-<span class="n">second_string</span> <span class="o">=</span> <span class="s">&#39;Beware the Jubjub bird, and shun /The frumious Bandersnatch!&quot;/&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">first_string</span> <span class="o">=</span> <span class="s1">&#39;&quot;Beware the Jabberwock, my son! /The jaws that bite, the claws that catch! /&#39;</span>
+<span class="n">second_string</span> <span class="o">=</span> <span class="s1">&#39;Beware the Jubjub bird, and shun /The frumious Bandersnatch!&quot;/&#39;</span>
 <span class="n">third_string</span> <span class="o">=</span> <span class="n">first_string</span> <span class="o">+</span> <span class="n">second_string</span>
 <span class="k">print</span> <span class="n">third_string</span>
 </pre></div>
@@ -13119,12 +13127,12 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&#39;Supercalifragilisticexpialidocious&#39;</span>
-<span class="k">print</span> <span class="s">&#39;The first letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># Uppercase S</span>
-<span class="k">print</span> <span class="s">&#39;The last letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># lowercase s</span>
-<span class="k">print</span> <span class="s">&#39;The second to last letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c"># lowercase u</span>
-<span class="k">print</span> <span class="s">&#39;The first five characters are: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c"># Remember: slicing doesn&#39;t include the final element!</span>
-<span class="k">print</span> <span class="s">&#39;Reverse it!: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;Supercalifragilisticexpialidocious&#39;</span>
+<span class="k">print</span> <span class="s1">&#39;The first letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Uppercase S</span>
+<span class="k">print</span> <span class="s1">&#39;The last letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># lowercase s</span>
+<span class="k">print</span> <span class="s1">&#39;The second to last letter is: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># lowercase u</span>
+<span class="k">print</span> <span class="s1">&#39;The first five characters are: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># Remember: slicing doesn&#39;t include the final element!</span>
+<span class="k">print</span> <span class="s1">&#39;Reverse it!: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -13147,8 +13155,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;Count of the letter i in Supercalifragilisticexpialidocious: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;i&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&#39;Count of &quot;li&quot; in the same word: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;li&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Count of the letter i in Supercalifragilisticexpialidocious: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Count of &quot;li&quot; in the same word: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13170,7 +13178,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;The first time i appears is at index: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;i&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;The first time i appears is at index: &#39;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13192,7 +13200,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&quot;All i&#39;s are now a&#39;s: &quot;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;All i&#39;s are now a&#39;s: &quot;</span><span class="p">,</span> <span class="n">my_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13205,7 +13213,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&quot;It&#39;s raining cats and dogs&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;more cats&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;It&#39;s raining cats and dogs&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;more cats&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13227,9 +13235,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;I can&#39;t hear you&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;I can&#39;t hear you&quot;</span>
 <span class="k">print</span> <span class="n">my_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;I said HELLO&quot;</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;I said HELLO&quot;</span>
 <span class="k">print</span> <span class="n">my_string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 
@@ -13242,7 +13250,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="String-Formatting">String Formatting<a class="anchor-link" href="#String-Formatting">&#194;&#182;</a></h3><p>Using the <code>format()</code> method we can add in variable values and generally format our strings.</p>
+<h3 id="String-Formatting">String Formatting<a class="anchor-link" href="#String-Formatting">&#182;</a></h3><p>Using the <code>format()</code> method we can add in variable values and generally format our strings.</p>
 
 </div>
 </div>
@@ -13252,7 +13260,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;{0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;Marco&#39;</span><span class="p">,</span> <span class="s">&#39;Polo&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;{0} {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Marco&#39;</span><span class="p">,</span> <span class="s1">&#39;Polo&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_string</span>
 </pre></div>
 
@@ -13266,7 +13274,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;{1} {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;Marco&#39;</span><span class="p">,</span> <span class="s">&#39;Polo&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;{1} {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Marco&#39;</span><span class="p">,</span> <span class="s1">&#39;Polo&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">my_string</span>
 </pre></div>
 
@@ -13307,7 +13315,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;insert </span><span class="si">%s</span><span class="s"> here&#39;</span> <span class="o">%</span> <span class="s">&#39;value&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;insert </span><span class="si">%s</span><span class="s1"> here&#39;</span> <span class="o">%</span> <span class="s1">&#39;value&#39;</span>
 </pre></div>
 
 </div>
@@ -13329,7 +13337,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;There are </span><span class="si">%s</span><span class="s"> cats in my </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="s">&#39;apartment&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;There are </span><span class="si">%s</span><span class="s1"> cats in my </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;apartment&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13350,7 +13358,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Logical-Operators">Logical Operators<a class="anchor-link" href="#Logical-Operators">&#194;&#182;</a></h2><h3 id="Basic-Logic">Basic Logic<a class="anchor-link" href="#Basic-Logic">&#194;&#182;</a></h3><p>Logical operators deal with <code>boolean</code> values, as we briefly covered before. If you recall, a <code>bool</code> takes on one of two values, <code>True</code> or <code>False</code> (or $1$ or $0$). The basic logical statements that we can make are defined using the built-in comparators. These are <code>==</code> (equal), <code>!=</code> (not equal), <code>&lt;</code> (less than), <code>&gt;</code> (greater than), <code>&lt;=</code> (less than or equal to), and <code>&gt;=</code> (greater than or equal to).</p>
+<h2 id="Logical-Operators">Logical Operators<a class="anchor-link" href="#Logical-Operators">&#182;</a></h2><h3 id="Basic-Logic">Basic Logic<a class="anchor-link" href="#Basic-Logic">&#182;</a></h3><p>Logical operators deal with <code>boolean</code> values, as we briefly covered before. If you recall, a <code>bool</code> takes on one of two values, <code>True</code> or <code>False</code> (or $1$ or $0$). The basic logical statements that we can make are defined using the built-in comparators. These are <code>==</code> (equal), <code>!=</code> (not equal), <code>&lt;</code> (less than), <code>&gt;</code> (greater than), <code>&lt;=</code> (less than or equal to), and <code>&gt;=</code> (greater than or equal to).</p>
 
 </div>
 </div>
@@ -13360,7 +13368,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -13373,7 +13381,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -13395,7 +13403,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="k">print</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">n</span>
 </pre></div>
@@ -13419,11 +13427,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">statement_1</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">statement_1</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">2</span>
 <span class="n">statement_2</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="mi">6</span>
-<span class="k">print</span> <span class="s">&quot;Statement 1 truth value: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_1</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&quot;Statement 2 truth value: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_2</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&quot;Statement 1 and Statement 2: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_1</span> <span class="ow">and</span> <span class="n">statement_2</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Statement 1 truth value: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_1</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Statement 2 truth value: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_2</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Statement 1 and Statement 2: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statement_1</span> <span class="ow">and</span> <span class="n">statement_2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13487,7 +13495,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="p">((</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="ow">or</span> <span class="p">((</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="p">((</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="ow">or</span> <span class="p">((</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13508,7 +13516,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Truthiness">Truthiness<a class="anchor-link" href="#Truthiness">&#194;&#182;</a></h4><p>Data types in Python have a fun characteristic called truthiness. What this means is that most built-in types will evaluate as either <code>True</code> or <code>False</code> when a boolean value is needed (such as with an if-statement). As a general rule, containers like strings, tuples, dictionaries, lists, and sets, will return <code>True</code> if they contain anything at all and <code>False</code> if they contain nothing.</p>
+<h4 id="Truthiness">Truthiness<a class="anchor-link" href="#Truthiness">&#182;</a></h4><p>Data types in Python have a fun characteristic called truthiness. What this means is that most built-in types will evaluate as either <code>True</code> or <code>False</code> when a boolean value is needed (such as with an if-statement). As a general rule, containers like strings, tuples, dictionaries, lists, and sets, will return <code>True</code> if they contain anything at all and <code>False</code> if they contain nothing.</p>
 
 </div>
 </div>
@@ -13518,8 +13526,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c"># Similar to how float() and int() work, bool() forces a value to be considered a boolean!</span>
-<span class="k">print</span> <span class="nb">bool</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Similar to how float() and int() work, bool() forces a value to be considered a boolean!</span>
+<span class="k">print</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13532,7 +13540,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="nb">bool</span><span class="p">(</span><span class="s">&#39;I have character!&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;I have character!&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13545,7 +13553,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="nb">bool</span><span class="p">([])</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="nb">bool</span><span class="p">([])</span>
 </pre></div>
 
 </div>
@@ -13558,7 +13566,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -13579,7 +13587,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="If-statements">If-statements<a class="anchor-link" href="#If-statements">&#194;&#182;</a></h3><p>We can create segments of code that only execute if a set of conditions is met. We use if-statements in conjunction with logical statements in order to create branches in our code.</p>
+<h3 id="If-statements">If-statements<a class="anchor-link" href="#If-statements">&#182;</a></h3><p>We can create segments of code that only execute if a set of conditions is met. We use if-statements in conjunction with logical statements in order to create branches in our code.</p>
 <p>An <code>if</code> block gets entered when the condition is considered to be <code>True</code>. If condition is evaluated as <code>False</code>, the <code>if</code> block will simply be skipped unless there is an <code>else</code> block to accompany it. Conditions are made using either logical operators or by using the truthiness of values in Python. An if-statement is defined with a colon and a block of indented text.</p>
 
 </div>
@@ -13590,20 +13598,20 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c"># This is the basic format of an if statement. This is a vacuous example. </span>
-<span class="c"># The string &quot;Condition&quot; will always evaluated as True because it is a</span>
-<span class="c"># non-empty string. he purpose of this code is to show the formatting of</span>
-<span class="c"># an if-statement.</span>
-<span class="k">if</span> <span class="s">&quot;Condition&quot;</span><span class="p">:</span> 
-    <span class="c"># This block of code will execute because the string is non-empty</span>
-    <span class="c"># Everything on these indented lines</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># This is the basic format of an if statement. This is a vacuous example. </span>
+<span class="c1"># The string &quot;Condition&quot; will always evaluated as True because it is a</span>
+<span class="c1"># non-empty string. he purpose of this code is to show the formatting of</span>
+<span class="c1"># an if-statement.</span>
+<span class="k">if</span> <span class="s2">&quot;Condition&quot;</span><span class="p">:</span> 
+    <span class="c1"># This block of code will execute because the string is non-empty</span>
+    <span class="c1"># Everything on these indented lines</span>
     <span class="k">print</span> <span class="bp">True</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c"># So if the condition that we examined with if is in fact False</span>
-    <span class="c"># This block of code will execute INSTEAD of the first block of code</span>
-    <span class="c"># Everything on these indented lines</span>
+    <span class="c1"># So if the condition that we examined with if is in fact False</span>
+    <span class="c1"># This block of code will execute INSTEAD of the first block of code</span>
+    <span class="c1"># Everything on these indented lines</span>
     <span class="k">print</span> <span class="bp">False</span>
-<span class="c"># The else block here will never execute because &quot;Condition&quot; is a non-empty string.</span>
+<span class="c1"># The else block here will never execute because &quot;Condition&quot; is a non-empty string.</span>
 </pre></div>
 
 </div>
@@ -13616,9 +13624,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i has a value of 5&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i has a value of 5&#39;</span>
 </pre></div>
 
 </div>
@@ -13640,13 +13648,13 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;All lines in this indented block are part of this block&quot;</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i has a value of 5&#39;</span>
+    <span class="k">print</span> <span class="s2">&quot;All lines in this indented block are part of this block&quot;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i has a value of 5&#39;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;All lines in this indented block are part of this block&quot;</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i is not equal to 5&#39;</span>
+    <span class="k">print</span> <span class="s2">&quot;All lines in this indented block are part of this block&quot;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i is not equal to 5&#39;</span>
 </pre></div>
 
 </div>
@@ -13668,15 +13676,15 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i has a value of 1&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i has a value of 1&#39;</span>
 <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i has a value of 2&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i has a value of 2&#39;</span>
 <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;The variable i has a value of 3&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;The variable i has a value of 3&#39;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;I don&#39;t care what i is&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;I don&#39;t care what i is&quot;</span>
 </pre></div>
 
 </div>
@@ -13698,16 +13706,16 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&#39;i is divisible by both 2 and 3! Wow!&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;i is divisible by both 2 and 3! Wow!&#39;</span>
     <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&#39;i is divisible by both 2 and 5! Wow!&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;i is divisible by both 2 and 5! Wow!&#39;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&#39;i is divisible by 2, but not 3 or 5. Meh.&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;i is divisible by 2, but not 3 or 5. Meh.&#39;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;I guess that i is an odd number. Boring.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;I guess that i is an odd number. Boring.&#39;</span>
 </pre></div>
 
 </div>
@@ -13729,10 +13737,10 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">j</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">11</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;{0} is less than 10 and {1} is greater than 11! How novel and interesting!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;{0} is less than 10 and {1} is greater than 11! How novel and interesting!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13754,11 +13762,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;Carthago delenda est&quot;</span>
-<span class="k">if</span> <span class="n">my_string</span> <span class="o">==</span> <span class="s">&quot;Carthago delenda est&quot;</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;And so it was! For the glory of Rome!&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Carthago delenda est&quot;</span>
+<span class="k">if</span> <span class="n">my_string</span> <span class="o">==</span> <span class="s2">&quot;Carthago delenda est&quot;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;And so it was! For the glory of Rome!&#39;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;War elephants are TERRIFYING. I am staying home.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;War elephants are TERRIFYING. I am staying home.&#39;</span>
 </pre></div>
 
 </div>
@@ -13790,8 +13798,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="s">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">my_string</span> <span class="ow">or</span> <span class="s">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">my_string</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;Those are my favorite vowels!&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">my_string</span> <span class="ow">or</span> <span class="s1">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">my_string</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Those are my favorite vowels!&#39;</span>
 </pre></div>
 
 </div>
@@ -13812,7 +13820,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Loop-Structures">Loop Structures<a class="anchor-link" href="#Loop-Structures">&#194;&#182;</a></h2><p>Loop structures are one of the most important parts of programming. The <code>for</code> loop and the <code>while</code> loop provide a way to repeatedly run a block of code repeatedly. A <code>while</code> loop will iterate until a certain condition has been met. If at any point after an iteration that condition is no longer satisfied, the loop terminates. A <code>for</code> loop will iterate over a sequence of values and terminate when the sequence has ended. You can instead include conditions within the <code>for</code> loop to decide whether it should terminate early or you could simply let it run its course.</p>
+<h2 id="Loop-Structures">Loop Structures<a class="anchor-link" href="#Loop-Structures">&#182;</a></h2><p>Loop structures are one of the most important parts of programming. The <code>for</code> loop and the <code>while</code> loop provide a way to repeatedly run a block of code repeatedly. A <code>while</code> loop will iterate until a certain condition has been met. If at any point after an iteration that condition is no longer satisfied, the loop terminates. A <code>for</code> loop will iterate over a sequence of values and terminate when the sequence has ended. You can instead include conditions within the <code>for</code> loop to decide whether it should terminate early or you could simply let it run its course.</p>
 
 </div>
 </div>
@@ -13822,10 +13830,10 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c"># We can write this as &#39;while i:&#39; because 0 is False!</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># We can write this as &#39;while i:&#39; because 0 is False!</span>
     <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">print</span> <span class="s">&#39;I am looping! {0} more to go!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;I am looping! {0} more to go!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13856,8 +13864,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;I am looping! I have looped {0} times!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;I am looping! I have looped {0} times!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13880,12 +13888,12 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;cats&#39;</span><span class="p">,</span> <span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;lizards&#39;</span><span class="p">,</span> <span class="s">&#39;cows&#39;</span><span class="p">,</span> <span class="s">&#39;bats&#39;</span><span class="p">,</span> <span class="s">&#39;sponges&#39;</span><span class="p">,</span> <span class="s">&#39;humans&#39;</span><span class="p">}</span> <span class="c"># Lists all the animals in the world</span>
-<span class="n">mammal_list</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;cats&#39;</span><span class="p">,</span> <span class="s">&#39;dogs&#39;</span><span class="p">,</span> <span class="s">&#39;cows&#39;</span><span class="p">,</span> <span class="s">&#39;bats&#39;</span><span class="p">,</span> <span class="s">&#39;humans&#39;</span><span class="p">}</span> <span class="c"># Lists all the mammals in the world</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;lizards&#39;</span><span class="p">,</span> <span class="s1">&#39;cows&#39;</span><span class="p">,</span> <span class="s1">&#39;bats&#39;</span><span class="p">,</span> <span class="s1">&#39;sponges&#39;</span><span class="p">,</span> <span class="s1">&#39;humans&#39;</span><span class="p">}</span> <span class="c1"># Lists all the animals in the world</span>
+<span class="n">mammal_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;cows&#39;</span><span class="p">,</span> <span class="s1">&#39;bats&#39;</span><span class="p">,</span> <span class="s1">&#39;humans&#39;</span><span class="p">}</span> <span class="c1"># Lists all the mammals in the world</span>
 <span class="n">my_new_list</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">mammal_list</span><span class="p">:</span>
-        <span class="c"># This adds any animal that is both in my_list and mammal_list to my_new_list</span>
+        <span class="c1"># This adds any animal that is both in my_list and mammal_list to my_new_list</span>
         <span class="n">my_new_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
         
 <span class="k">print</span> <span class="n">my_new_list</span>
@@ -13910,11 +13918,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
         <span class="k">break</span>
-    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c"># This is shorthand for i = i + 1. It increments i with each iteration.</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># This is shorthand for i = i + 1. It increments i with each iteration.</span>
     <span class="k">print</span> <span class="n">i</span>
 </pre></div>
 
@@ -13928,7 +13936,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="k">print</span> <span class="n">i</span>
@@ -13953,7 +13961,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -13989,11 +13997,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">loop_string</span> <span class="o">=</span> <span class="s">&#39;I transcend the loop!&#39;</span>
-    <span class="k">print</span> <span class="s">&#39;I am eternal! I am {0} and I exist everywhere!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">loop_string</span> <span class="o">=</span> <span class="s1">&#39;I transcend the loop!&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;I am eternal! I am {0} and I exist everywhere!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">&#39;I persist! My value is {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;I persist! My value is {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">loop_string</span>
 </pre></div>
 
@@ -14016,7 +14024,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;firstname&#39;</span> <span class="p">:</span> <span class="s">&#39;Inigo&#39;</span><span class="p">,</span> <span class="s">&#39;lastname&#39;</span> <span class="p">:</span> <span class="s">&#39;Montoya&#39;</span><span class="p">,</span> <span class="s">&#39;nemesis&#39;</span> <span class="p">:</span> <span class="s">&#39;Rugen&#39;</span><span class="p">}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstname&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inigo&#39;</span><span class="p">,</span> <span class="s1">&#39;lastname&#39;</span> <span class="p">:</span> <span class="s1">&#39;Montoya&#39;</span><span class="p">,</span> <span class="s1">&#39;nemesis&#39;</span> <span class="p">:</span> <span class="s1">&#39;Rugen&#39;</span><span class="p">}</span>
 </pre></div>
 
 </div>
@@ -14029,7 +14037,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">key</span>
 </pre></div>
 
@@ -14052,7 +14060,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 </pre></div>
 
@@ -14065,7 +14073,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or we can use the <code>iteritems()</code> function to get both key and value at the same time.</p>
+<p>Or we can use the <code>items()</code> function to get both key and value at the same time.</p>
 
 </div>
 </div>
@@ -14075,8 +14083,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
-    <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="n">value</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">value</span>
 </pre></div>
 
 </div>
@@ -14088,7 +14096,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>iteritems()</code> function creates a tuple of each key-value pair and the for loop stores unpacks that tuple into <code>key, value</code> on each separate execution of the loop!</p>
+<p>The <code>items()</code> function creates a tuple of each key-value pair and the for loop stores unpacks that tuple into <code>key, value</code> on each separate execution of the loop!</p>
 
 </div>
 </div>
@@ -14097,7 +14105,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#194;&#182;</a></h2><p>A function is a reusable block of code that you can call repeatedly to make calculations, output data, or really do anything that you want. This is one of the key aspects of using a programming language. To add to the built-in functions in Python, you can define your own!</p>
+<h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h2><p>A function is a reusable block of code that you can call repeatedly to make calculations, output data, or really do anything that you want. This is one of the key aspects of using a programming language. To add to the built-in functions in Python, you can define your own!</p>
 
 </div>
 </div>
@@ -14107,9 +14115,9 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Prints Hello, world! &quot;&quot;&quot;</span>
-    <span class="k">print</span> <span class="s">&#39;Hello, world!&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;Hello, world!&#39;</span>
 
 <span class="n">hello_world</span><span class="p">()</span>
 </pre></div>
@@ -14124,7 +14132,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">hello_world</span><span class="p">()</span>
 </pre></div>
 
@@ -14148,8 +14156,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">see_the_scope</span><span class="p">():</span>
-    <span class="n">in_function_string</span> <span class="o">=</span> <span class="s">&quot;I&#39;m stuck in here!&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">see_the_scope</span><span class="p">():</span>
+    <span class="n">in_function_string</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m stuck in here!&quot;</span>
 
 <span class="n">see_the_scope</span><span class="p">()</span>
 <span class="k">print</span> <span class="n">in_function_string</span>
@@ -14175,8 +14183,8 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">free_the_scope</span><span class="p">():</span>
-    <span class="n">in_function_string</span> <span class="o">=</span> <span class="s">&quot;Anything you can do I can do better!&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">free_the_scope</span><span class="p">():</span>
+    <span class="n">in_function_string</span> <span class="o">=</span> <span class="s2">&quot;Anything you can do I can do better!&quot;</span>
     <span class="k">return</span> <span class="n">in_function_string</span>
 <span class="n">my_string</span> <span class="o">=</span> <span class="n">free_the_scope</span><span class="p">()</span>
 <span class="k">print</span> <span class="n">my_string</span>
@@ -14201,7 +14209,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">multiply_by_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">multiply_by_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Multiplies an input number by 5 &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">5</span>
 
@@ -14229,7 +14237,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Calculates the area of a rectangle &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
 </pre></div>
@@ -14244,11 +14252,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">l</span> <span class="o">=</span> <span class="mi">5</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">w</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">print</span> <span class="s">&#39;Area: &#39;</span><span class="p">,</span> <span class="n">calculate_area</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&#39;Length: &#39;</span><span class="p">,</span> <span class="n">l</span>
-<span class="k">print</span> <span class="s">&#39;Width: &#39;</span><span class="p">,</span> <span class="n">w</span>
+<span class="k">print</span> <span class="s1">&#39;Area: &#39;</span><span class="p">,</span> <span class="n">calculate_area</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Length: &#39;</span><span class="p">,</span> <span class="n">l</span>
+<span class="k">print</span> <span class="s1">&#39;Width: &#39;</span><span class="p">,</span> <span class="n">w</span>
 </pre></div>
 
 </div>
@@ -14261,7 +14269,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">calculate_volume</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">calculate_volume</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Calculates the volume of a rectangular prism &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">depth</span>
 </pre></div>
@@ -14285,7 +14293,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">sum_values</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">sum_values</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">sum_val</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">sum_val</span> <span class="o">+=</span> <span class="n">i</span>
@@ -14302,7 +14310,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">sum_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">sum_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">sum_values</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">sum_values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -14326,7 +14334,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">test_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">test_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
 <span class="n">test_args</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -14362,7 +14370,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">has_a_vowel</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">has_a_vowel</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Checks to see whether a word contains a vowel </span>
 <span class="sd">    If it doesn&#39;t contain a conventional vowel, it</span>
@@ -14370,12 +14378,12 @@ ul.typeahead-list > li > a {
 <span class="sd">    not check to see whether those are in the word</span>
 <span class="sd">    in a vowel context.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">vowel_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">,</span> <span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">]</span>
+    <span class="n">vowel_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">]</span>
     
     <span class="k">for</span> <span class="n">vowel</span> <span class="ow">in</span> <span class="n">vowel_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">vowel</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
-    <span class="c"># If there is a vowel in the word, the function returns, preventing anything after this loop from running</span>
+    <span class="c1"># If there is a vowel in the word, the function returns, preventing anything after this loop from running</span>
     <span class="k">return</span> <span class="bp">False</span>
 </pre></div>
 
@@ -14389,11 +14397,11 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">my_word</span> <span class="o">=</span> <span class="s">&#39;catnapping&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_word</span> <span class="o">=</span> <span class="s1">&#39;catnapping&#39;</span>
 <span class="k">if</span> <span class="n">has_a_vowel</span><span class="p">(</span><span class="n">my_word</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;How surprising, an english word contains a vowel.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;How surprising, an english word contains a vowel.&#39;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;This is actually surprising.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;This is actually surprising.&#39;</span>
 </pre></div>
 
 </div>
@@ -14406,7 +14414,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">point_maker</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">point_maker</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Groups x and y values into a point, technically a tuple &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 </pre></div>
@@ -14430,12 +14438,12 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">point_maker</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">point_maker</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">point_maker</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_slope</span><span class="p">(</span><span class="n">point_a</span><span class="p">,</span> <span class="n">point_b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Calculates the linear slope between two points &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">point_a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">point_a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">print</span> <span class="s">&quot;The slope between a and b is {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calculate_slope</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;The slope between a and b is {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calculate_slope</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -14457,7 +14465,7 @@ ul.typeahead-list > li > a {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&quot;The slope-intercept form of the line between a and b, using point a, is: y - {0} = {2}(x - {1})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">calculate_slope</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;The slope-intercept form of the line between a and b, using point a, is: y - {0} = {2}(x - {1})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">calculate_slope</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -14478,7 +14486,7 @@ ul.typeahead-list > li > a {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps">&#194;&#182;</a></h2><p>This was a lot of material and there is still even more to cover! Make sure you play around with the cells in each notebook to accustom yourself to the syntax featured here and to figure out any limitations. If you want to delve even deeper into the material, the <a href="https://docs.python.org/2/">documentation for Python</a> is all available online. We are in the process of developing a second part to this Python tutorial, designed to provide you with even more programming knowledge, so keep an eye on the <a href="quantopian.com/lectures">Quantopian Lectures Page</a> and the <a href="quantopian.com/posts">forums</a> for any new lectures.</p>
+<h2 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps">&#182;</a></h2><p>This was a lot of material and there is still even more to cover! Make sure you play around with the cells in each notebook to accustom yourself to the syntax featured here and to figure out any limitations. If you want to delve even deeper into the material, the <a href="https://docs.python.org/2/">documentation for Python</a> is all available online. We are in the process of developing a second part to this Python tutorial, designed to provide you with even more programming knowledge, so keep an eye on the <a href="quantopian.com/lectures">Quantopian Lectures Page</a> and the <a href="quantopian.com/posts">forums</a> for any new lectures.</p>
 
 </div>
 </div>
@@ -14495,3 +14503,8 @@ ul.typeahead-list > li > a {
     </div>
   </div>
 </body>
+
+ 
+
+
+</html>
